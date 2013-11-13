@@ -1,11 +1,44 @@
 package cn.heroes.ec;
 
-public class Main {
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Main {
+	
+	private static final Logger logger = LoggerFactory.getLogger(Main.class);
+	// Client_ID, Socket
+	private static final Map<String, Socket> clients = new HashMap<String, Socket>();
+
+	public static void main(String[] args) throws IOException {
+
+		final ServerSocket ss = new ServerSocket(23);
+		new Thread() {
+			@Override
+			public void run() {
+				while (true) {
+					try {
+						// 同个客户端再次联接怎么办
+						Socket client = ss.accept();
+						
+						InetAddress ia = client.getInetAddress();
+						String ip = ia.getHostAddress();
+						int port = client.getPort();
+						clients.put(ip, client);
+						logger.info("新客户{}[{}]连接成功", ip, port);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}.start();
+		
 		
 	}
 
