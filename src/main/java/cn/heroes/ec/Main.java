@@ -53,7 +53,7 @@ public class Main {
 											try {
 												IOUtils.copy(is, _os);
 											} catch (IOException e) {
-												e.printStackTrace();
+												logger.error("client" + "" + "断开连接", e);
 											}
 											
 										}
@@ -64,7 +64,7 @@ public class Main {
 											try {
 												IOUtils.copy(_is, os);
 											} catch (IOException e) {
-												e.printStackTrace();
+												logger.error("client" + "" + "断开连接", e);
 											}
 											
 										}
