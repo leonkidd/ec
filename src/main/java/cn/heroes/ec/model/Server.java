@@ -1,5 +1,8 @@
 package cn.heroes.ec.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 /**
@@ -9,17 +12,18 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * @version 1.00, 2013-11-15
  * @since 1.0
  */
-public class Client {
+public class Server {
 	/** IP地址 */
 	private String ip;
-	/** 发起端口号 */
+	/** 服务端口号 */
 	private int port;
+	private Set<Client> clients = new HashSet<Client>();
 
-	public Client() {
+	public Server() {
 
 	}
 
-	public Client(String ip, int port) {
+	public Server(String ip, int port) {
 		this.ip = ip;
 		this.port = port;
 	}
@@ -41,7 +45,7 @@ public class Client {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Client) {
+		if(obj instanceof Server) {
 			// TODO
 			return true;
 		} else {
@@ -63,6 +67,14 @@ public class Client {
 
 	public void setPort(int port) {
 		this.port = port;
+	}
+
+	public Set<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(Set<Client> clients) {
+		this.clients = clients;
 	}
 
 }

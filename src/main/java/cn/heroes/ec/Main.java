@@ -6,18 +6,23 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cn.heroes.ec.model.Server;
+
 public class Main {
 
 	private static final Logger logger = LoggerFactory.getLogger(Main.class);
 	// Client_ID, Socket
 	private static final Map<String, Socket> clients = new HashMap<String, Socket>();
+	private static final List<Server> servers = new ArrayList<Server>();
 
 	public static void main(String[] args) throws IOException {
 
