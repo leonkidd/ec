@@ -1,5 +1,7 @@
 package cn.heroes.ec.model;
 
+import java.net.Socket;
+
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 /**
@@ -14,6 +16,8 @@ public class Client {
 	private String ip;
 	/** 发起端口号 */
 	private int port;
+	/** 客户端的socket连接 */
+	private Socket socket;
 
 	public Client() {
 

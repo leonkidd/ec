@@ -58,7 +58,7 @@ public class Main {
 											try {
 												IOUtils.copy(is, _os);
 											} catch (IOException e) {
-												logger.error("client" + "" + "断开连接", e);
+												logger.error("client" + "" + "断开连接");
 											}
 											
 										}
@@ -69,7 +69,7 @@ public class Main {
 											try {
 												IOUtils.copy(_is, os);
 											} catch (IOException e) {
-												logger.error("client" + "" + "断开连接", e);
+												logger.error("client" + "" + "断开连接");
 											}
 											
 										}
