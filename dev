@@ -1,3 +1,6 @@
 1.虚拟客户端的虚拟IP地址						process
 2.客户端唯一标识								process
 3.服务节点的热添加							process
+4.基本功能先用Main实现，后续改良				process
+5.spring-data-jpa
+

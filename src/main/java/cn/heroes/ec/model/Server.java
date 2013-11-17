@@ -6,7 +6,7 @@ import java.util.Set;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 /**
- * 客户端对象
+ * 服务节点对象
  * 
  * @author Leon Kidd
  * @version 1.00, 2013-11-15
@@ -17,10 +17,11 @@ public class Server {
 	private String ip;
 	/** 服务端口号 */
 	private int port;
+	/** 当前客户端对象 */
 	private Set<Client> clients = new HashSet<Client>();
 
-	public Server() {
-
+	public Server(String ip) {
+		this.ip = ip;
 	}
 
 	public Server(String ip, int port) {

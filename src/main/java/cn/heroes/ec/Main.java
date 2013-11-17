@@ -25,7 +25,16 @@ public class Main {
 	private static final List<Server> servers = new ArrayList<Server>();
 
 	public static void main(String[] args) throws IOException {
-
+		
+		// Server Nodes
+		Server sv1 = new Server("154.189.1.11");
+		Server sv2 = new Server("154.189.1.11");
+		Server sv3 = new Server("154.189.1.11");
+		servers.add(sv1);
+		servers.add(sv2);
+		servers.add(sv3);
+		
+		
 		final ServerSocket ss = new ServerSocket(23);
 		new Thread() {
 			@Override
@@ -33,20 +42,20 @@ public class Main {
 				while (true) {
 					try {
 						// 同个客户端再次联接怎么办
-						final Socket client = ss.accept();
+						final Socket s = ss.accept();
 
-						InetAddress ia = client.getInetAddress();
+						InetAddress ia = s.getInetAddress();
 						String ip = ia.getHostAddress();
-						int port = client.getPort();
+						int port = s.getPort();
 
-						clients.put(ip, client);
+						clients.put(ip, s);
 
 						new Thread() {
 							@Override
 							public void run() {
 								try {
-									final InputStream is = client.getInputStream();
-									final OutputStream os = client.getOutputStream();
+									final InputStream is = s.getInputStream();
+									final OutputStream os = s.getOutputStream();
 									
 									Socket socket = new Socket("192.168.200.7", 23);
 									final OutputStream _os = socket.getOutputStream();
@@ -88,6 +97,11 @@ public class Main {
 			}
 		}.start();
 
+	}
+	
+	public Server chooseServer() {
+		
+		return null;
 	}
 
 }
