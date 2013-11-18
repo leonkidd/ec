@@ -17,12 +17,10 @@ public class Server {
 	private String ip;
 	/** 服务端口号 */
 	private int port;
-	/** 当前客户端对象 */
-	private Set<Client> clients = new HashSet<Client>();
-
-	public Server(String ip) {
-		this.ip = ip;
-	}
+	/** 关联的EC对象 */
+	private Set<Agent> agents = new HashSet<Agent>();
+	/** 服务器可用性 */
+	private boolean available;
 
 	public Server(String ip, int port) {
 		this.ip = ip;
@@ -46,7 +44,7 @@ public class Server {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Server) {
+		if (obj instanceof Server) {
 			// TODO
 			return true;
 		} else {
@@ -70,12 +68,38 @@ public class Server {
 		this.port = port;
 	}
 
-	public Set<Client> getClients() {
-		return clients;
+	/**
+	 * @return the agents
+	 */
+	public Set<Agent> getAgents() {
+		return agents;
 	}
 
-	public void setClients(Set<Client> clients) {
-		this.clients = clients;
+	/**
+	 * @param agents
+	 *            the agents to set
+	 */
+	public void setAgents(Set<Agent> agents) {
+		this.agents = agents;
+	}
+
+	public void addAgent(Agent agent) {
+		this.agents.add(agent);
+	}
+
+	/**
+	 * @return the available
+	 */
+	public boolean isAvailable() {
+		return available;
+	}
+
+	/**
+	 * @param available
+	 *            the available to set
+	 */
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 
 }

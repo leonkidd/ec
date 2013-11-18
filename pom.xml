@@ -43,6 +43,11 @@
 			<artifactId>commons-lang</artifactId>
 			<version>2.6</version>
 		</dependency>
+		<dependency>
+			<groupId>cn.heroes</groupId>
+			<artifactId>jkit</artifactId>
+			<version>0.2.3</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

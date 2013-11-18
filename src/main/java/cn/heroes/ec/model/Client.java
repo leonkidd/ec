@@ -2,6 +2,7 @@ package cn.heroes.ec.model;
 
 import java.net.Socket;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 /**
@@ -14,10 +15,12 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 public class Client {
 	/** IP地址 */
 	private String ip;
-	/** 发起端口号 */
+	/** 端口号(与Agent连接的发起端口) */
 	private int port;
 	/** 客户端的socket连接 */
 	private Socket socket;
+	/** 关联的EC代理对象 */
+	private Agent agent;
 
 	public Client() {
 
@@ -45,9 +48,10 @@ public class Client {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Client) {
-			// TODO
-			return true;
+		if (obj instanceof Client) {
+			Client c = (Client) obj;
+			return new EqualsBuilder().append(this.ip, c.ip)
+					.append(this.port, c.port).isEquals();
 		} else {
 			return false;
 		}
@@ -67,6 +71,36 @@ public class Client {
 
 	public void setPort(int port) {
 		this.port = port;
+	}
+
+	/**
+	 * @return the socket
+	 */
+	public Socket getSocket() {
+		return socket;
+	}
+
+	/**
+	 * @param socket
+	 *            the socket to set
+	 */
+	public void setSocket(Socket socket) {
+		this.socket = socket;
+	}
+
+	/**
+	 * @return the agent
+	 */
+	public Agent getAgent() {
+		return agent;
+	}
+
+	/**
+	 * @param agent
+	 *            the agent to set
+	 */
+	public void setAgent(Agent agent) {
+		this.agent = agent;
 	}
 
 }

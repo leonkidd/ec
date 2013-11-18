@@ -2,5 +2,5 @@
 2.客户端唯一标识								process
 3.服务节点的热添加							process
 4.基本功能先用Main实现，后续改良				process
-5.spring-data-jpa
-
+5.spring-data-jpa							process
+6.Agent与Client分离，池化					process
