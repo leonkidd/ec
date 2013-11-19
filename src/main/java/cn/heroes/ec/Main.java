@@ -119,9 +119,9 @@ public class Main {
 	 * 初始化服务节点
 	 */
 	public static void initServerNode() {
-		Server sv1 = new Server("192.168.200.7", 23);
-		Server sv2 = new Server("192.168.200.16", 23);
-		Server sv3 = new Server("192.168.200.17", 23);
+		Server sv1 = new Server("192.168.200.71", 23);
+		Server sv2 = new Server("192.168.200.72", 23);
+		Server sv3 = new Server("192.168.200.73", 23);
 		servers.add(sv1);
 		servers.add(sv2);
 		servers.add(sv3);
